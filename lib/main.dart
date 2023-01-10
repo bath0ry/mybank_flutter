@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Home/home_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,14 +15,5 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: const HomePage(),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
