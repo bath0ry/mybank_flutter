@@ -1,3 +1,4 @@
+import 'package:alubank_flutter/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'Home/home_page.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: AppTheme,
       home: const HomePage(),
     );
   }
