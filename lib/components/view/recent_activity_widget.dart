@@ -1,6 +1,6 @@
-import 'package:alubank_flutter/components/box_home_widget.dart';
-import 'package:alubank_flutter/components/division_widget.dart';
-import 'package:alubank_flutter/components/dot_widget.dart';
+import 'package:alubank_flutter/components/view/box_home_widget.dart';
+import 'package:alubank_flutter/components/view/division_widget.dart';
+import 'package:alubank_flutter/components/view/dot_widget.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +90,7 @@ class _RecentActivityContent extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 8, bottom: 8),
+          padding: const EdgeInsets.only(top: 12, bottom: 12),
           child: DivisionWidget(),
         ),
         Text(

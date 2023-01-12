@@ -7,7 +7,7 @@ class DivisionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1,
+      height: 2,
       decoration: BoxDecoration(border: Border.all(color: ThemeColors.divison)),
     );
   }
