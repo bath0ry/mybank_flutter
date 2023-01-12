@@ -8,4 +8,4 @@ ThemeData AppTheme = ThemeData(
     textTheme: TextTheme(
         bodyMedium: TextStyle(fontSize: 16),
         bodyLarge: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-        titleMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.w400)));
+        titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w400)));

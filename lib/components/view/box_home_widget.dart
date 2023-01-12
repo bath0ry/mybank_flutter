@@ -6,7 +6,7 @@ class BoxHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Ink(
       child: boxComponent,
       decoration: BoxDecoration(
           boxShadow: kElevationToShadow[4],

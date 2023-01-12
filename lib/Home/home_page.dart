@@ -1,4 +1,5 @@
-import 'package:alubank_flutter/components/view/actions_activity_widget.dart';
+import 'package:alubank_flutter/components/view/actions_account_widget.dart';
+
 import 'package:alubank_flutter/components/view/header_widget.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [Header(), RecentActivity(), ActionsActivity()],
+        children: [Header(), RecentActivity(), AccountActions()],
       ),
     );
   }
