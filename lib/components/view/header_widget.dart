@@ -1,4 +1,3 @@
-import 'package:alubank_flutter/theme/app_theme.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -31,7 +30,7 @@ class Header extends StatelessWidget {
                       text: '100,00',
                       style: Theme.of(context).textTheme.bodyLarge)
                 ])),
-                Text(
+                const Text(
                   'Saldo Disponivel',
                 ),
               ],

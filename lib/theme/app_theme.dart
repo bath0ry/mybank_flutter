@@ -6,5 +6,5 @@ ThemeData AppTheme = ThemeData(
     primarySwatch: ThemeColors.primaryColor,
     brightness: Brightness.dark,
     textTheme: TextTheme(
-        bodyMedium: TextStyle(fontSize: 20),
-        bodyLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)));
+        bodyMedium: TextStyle(fontSize: 16),
+        bodyLarge: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)));

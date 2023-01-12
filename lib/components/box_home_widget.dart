@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class BoxHome extends StatelessWidget {
   final Widget boxComponent; //passando por parametro
@@ -15,7 +12,7 @@ class BoxHome extends StatelessWidget {
           boxShadow: kElevationToShadow[4],
           borderRadius: BorderRadius.circular(8),
           color: Theme.of(context).cardColor),
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
     );
   }
 }

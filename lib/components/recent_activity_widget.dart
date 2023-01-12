@@ -1,5 +1,9 @@
 import 'package:alubank_flutter/components/box_home_widget.dart';
+import 'package:alubank_flutter/components/division_widget.dart';
+import 'package:alubank_flutter/components/dot_widget.dart';
+import 'package:alubank_flutter/theme/theme_colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -8,7 +12,7 @@ class RecentActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.all(16),
       child: BoxHome(boxComponent: _RecentActivityContent()),
     );
@@ -21,10 +25,82 @@ class _RecentActivityContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          children: [],
-        )
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: DotWidget(color: ThemeColors.recentActivity['spent']),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Saída',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    Text(
+                      '\$10.000,00',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    )
+                  ],
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: DotWidget(color: ThemeColors.recentActivity['income']),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Entrada',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    Text(
+                      '\$ 9.997,00',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    )
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
+        const Padding(
+          padding: EdgeInsets.only(top: 16, bottom: 8),
+          child: Text(
+            'Limite de gastos: \$500,00',
+          ),
+        ),
+        Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: const LinearProgressIndicator(
+            value: 0.5,
+            minHeight: 7,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8),
+          child: DivisionWidget(),
+        ),
+        Text(
+            'Esse mês você gastou \$1500.00 com jogos. Tente abaixar esse custo!'),
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              'Diga-me como!',
+              style: TextStyle(fontSize: 17),
+            ))
       ],
     );
   }
