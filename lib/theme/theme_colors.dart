@@ -7,4 +7,9 @@ class ThemeColors {
     Color.fromARGB(255, 76, 107, 245),
     Color.fromARGB(255, 165, 136, 243),
   ];
+  static const recentActivity = {
+    'spent': Color.fromRGBO(255, 175, 29, 1),
+    'income': Color.fromRGBO(191, 69, 198, 1)
+  };
+  static const divison = Color.fromRGBO(166, 166, 166, 1);
 }
