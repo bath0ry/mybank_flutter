@@ -2,10 +2,9 @@ import 'package:alubank_flutter/components/view/box_home_widget.dart';
 import 'package:alubank_flutter/components/view/division_widget.dart';
 import 'package:alubank_flutter/components/view/dot_widget.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class RecentActivity extends StatelessWidget {
   const RecentActivity({super.key});
@@ -89,15 +88,15 @@ class _RecentActivityContent extends StatelessWidget {
             minHeight: 7,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 12, bottom: 12),
+        const Padding(
+          padding: EdgeInsets.only(top: 12, bottom: 12),
           child: DivisionWidget(),
         ),
-        Text(
+        const Text(
             'Esse mês você gastou \$1500.00 com jogos. Tente abaixar esse custo!'),
         TextButton(
             onPressed: () {},
-            child: Text(
+            child: const Text(
               'Diga-me como!',
               style: TextStyle(fontSize: 17),
             ))

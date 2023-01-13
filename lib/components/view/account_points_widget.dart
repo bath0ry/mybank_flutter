@@ -2,10 +2,9 @@ import 'package:alubank_flutter/components/view/box_home_widget.dart';
 import 'package:alubank_flutter/components/view/division_widget.dart';
 import 'package:alubank_flutter/components/view/dot_widget.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class AccountPoints extends StatelessWidget {
   const AccountPoints({super.key});
@@ -13,7 +12,7 @@ class AccountPoints extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,7 +21,7 @@ class AccountPoints extends StatelessWidget {
               child: Text('Pontos da conta',
                   style: Theme.of(context).textTheme.titleMedium),
             ),
-            BoxHome(
+            const BoxHome(
               boxComponent: _AccountPointsContent(),
             ),
           ],
@@ -46,8 +45,8 @@ class _AccountPointsContent extends StatelessWidget {
           '3000',
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8, bottom: 8),
+        const Padding(
+          padding: EdgeInsets.only(top: 8, bottom: 8),
           child: DivisionWidget(),
         ),
         Text(

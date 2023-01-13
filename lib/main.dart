@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme,
-      home: SafeArea(child: const HomePage()),
+      home: const SafeArea(child: HomePage()),
     );
   }
 }

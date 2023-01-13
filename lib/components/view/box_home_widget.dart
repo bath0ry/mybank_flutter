@@ -7,12 +7,12 @@ class BoxHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Ink(
-      child: boxComponent,
       decoration: BoxDecoration(
           boxShadow: kElevationToShadow[4],
           borderRadius: BorderRadius.circular(8),
           color: Theme.of(context).cardColor),
       padding: const EdgeInsets.all(16),
+      child: boxComponent,
     );
   }
 }
