@@ -1,8 +1,6 @@
 import 'package:alubank_flutter/components/view/box_home_widget.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class AccountActions extends StatelessWidget {
   const AccountActions({super.key});
@@ -10,7 +8,7 @@ class AccountActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +24,7 @@ class AccountActions extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {},
-                child: BoxHome(
+                child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.account_balance_wallet),
                   text: 'Depositar',
@@ -34,7 +32,7 @@ class AccountActions extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {},
-                child: BoxHome(
+                child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.cached),
                   text: 'Trasnferir',
@@ -42,7 +40,7 @@ class AccountActions extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {},
-                child: BoxHome(
+                child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.center_focus_strong),
                   text: 'Ler',
@@ -64,8 +62,8 @@ class _AccountActionsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 70,
+    return SizedBox(
+      width: 72,
       child: Column(
         children: [
           Padding(
