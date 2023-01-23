@@ -1,6 +1,7 @@
 import 'package:alubank_flutter/components/view/box_home_widget.dart';
 import 'package:alubank_flutter/components/view/division_widget.dart';
 import 'package:alubank_flutter/components/view/dot_widget.dart';
+import 'package:alubank_flutter/data/bank_inherited.dart';
 import 'package:alubank_flutter/theme/theme_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -50,7 +51,10 @@ class _AccountPointsContentState extends State<_AccountPointsContent> {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Text(
-            '3000',
+            BankInherited.of(context)
+                .values
+                .points
+                .toString(), //coloca toString pois aqui precisar ser uma string
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const Padding(

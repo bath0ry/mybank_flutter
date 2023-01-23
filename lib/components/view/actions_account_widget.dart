@@ -1,4 +1,5 @@
 import 'package:alubank_flutter/components/view/box_home_widget.dart';
+import 'package:alubank_flutter/data/bank_inherited.dart';
 
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,9 @@ class AccountActions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  BankInherited.of(context).values.deposit(10);
+                },
                 child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.account_balance_wallet),
@@ -31,7 +34,9 @@ class AccountActions extends StatelessWidget {
                 )),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  BankInherited.of(context).values.transfer(10);
+                },
                 child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.cached),

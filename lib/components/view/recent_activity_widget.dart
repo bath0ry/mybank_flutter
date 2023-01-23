@@ -98,7 +98,7 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: const LinearProgressIndicator(
+                  child: LinearProgressIndicator(
                     value: BankInherited.of(context).values.spent / 500,
                     minHeight: 7,
                   ),
@@ -110,8 +110,8 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
             padding: EdgeInsets.only(top: 12, bottom: 12),
             child: DivisionWidget(),
           ),
-          const Text(
-              'Esse mês você gastou \$1500.00 com jogos. Tente abaixar esse custo!'),
+          Text(
+              'Esse mês você gastou ${spentAndEarned()} com jogos. Tente abaixar esse custo!'),
           TextButton(
               onPressed: () {},
               child: const Text(
@@ -122,14 +122,14 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
       ),
     );
   }
-}
 
-double spentAndEarned() {
-  double result = (BankInherited.of(context).values.spent /
-          BankInherited.of(context).values.earned) *
-      100;
-  if (result.isNaN) {
-    return 0;
+  double spentAndEarned() {
+    double result = (BankInherited.of(context).values.spent /
+            BankInherited.of(context).values.earned) *
+        100;
+    if (result.isNaN) {
+      return 0;
+    }
+    return result;
   }
-  return result;
 }
