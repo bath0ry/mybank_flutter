@@ -1,5 +1,7 @@
 import 'package:alubank_flutter/data/bank_inherited.dart';
+import 'package:alubank_flutter/data/bank_model.dart';
 import 'package:alubank_flutter/data/bank_service.dart';
+
 import 'package:alubank_flutter/theme/theme_colors.dart';
 import 'package:dio/dio.dart';
 
@@ -13,14 +15,6 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  late final BankService service;
-
-  @override
-  void initState() {
-    service = BankService(Dio());
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -60,33 +54,37 @@ class _HeaderState extends State<Header> {
               ),
               FutureBuilder(
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
-                  } else if (snapshot.hasError) {
-                    return const Center(
-                      child: Text('Erro'),
-                    );
-                  } else if (snapshot.connectionState == ConnectionState.done) {
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text.rich(
-                          TextSpan(
-                            text: 'R\$',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: snapshot.data.toString(),
-                                  style: Theme.of(context).textTheme.bodyLarge)
-                            ],
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                      return CircularProgressIndicator();
+
+                    case ConnectionState.waiting:
+                      return CircularProgressIndicator();
+
+                    case ConnectionState.active:
+                      break;
+                    case ConnectionState.done:
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text.rich(
+                            TextSpan(
+                              text: 'R\$',
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: snapshot.data.toString(),
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge)
+                              ],
+                            ),
                           ),
-                        ),
-                        const Text('Dolar to Real'),
-                      ],
-                    );
+                          const Text('Dolar to Real'),
+                        ],
+                      );
                   }
                   return Text('Erro na API');
                 },
-                future: service.getDolarToReal(),
+                future: BankService().getDolarToReal(),
               ),
               IconButton(
                   onPressed: () {},

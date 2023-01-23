@@ -17,7 +17,7 @@ class BankInherited extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(BankInherited old) {
-    return values.points != old.values.points;
+  bool updateShouldNotify(BankInherited oldWidget) {
+    return values.points != oldWidget.values.points;
   }
 }
