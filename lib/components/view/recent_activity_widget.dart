@@ -5,6 +5,8 @@ import 'package:alubank_flutter/theme/theme_colors.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../data/bank_inherited.dart';
+
 class RecentActivity extends StatelessWidget {
   const RecentActivity({super.key});
 
@@ -52,7 +54,7 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
-                        '\$10.000,00',
+                        '\$${BankInherited.of(context).values.spent}',
                         style: Theme.of(context).textTheme.bodyLarge,
                       )
                     ],
@@ -74,7 +76,7 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
-                        '\$ 9.997,00',
+                        '\$${BankInherited.of(context).values.earned}',
                         style: Theme.of(context).textTheme.bodyLarge,
                       )
                     ],
@@ -89,14 +91,20 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
               'Limite de gastos: \$500,00',
             ),
           ),
-          Container(
-            clipBehavior: Clip.hardEdge,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: const LinearProgressIndicator(
-              value: 0.5,
-              minHeight: 7,
-            ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: const LinearProgressIndicator(
+                    value: BankInherited.of(context).values.spent / 500,
+                    minHeight: 7,
+                  ),
+                ),
+              ),
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(top: 12, bottom: 12),
@@ -114,4 +122,14 @@ class _RecentActivityContentState extends State<_RecentActivityContent> {
       ),
     );
   }
+}
+
+double spentAndEarned() {
+  double result = (BankInherited.of(context).values.spent /
+          BankInherited.of(context).values.earned) *
+      100;
+  if (result.isNaN) {
+    return 0;
+  }
+  return result;
 }
