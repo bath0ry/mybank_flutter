@@ -8,12 +8,32 @@ void main() {
       bank.deposit(10);
       expect(bank.points, (10));
     });
+    test('Bank model earned should turns into 10', () {
+      final bank = BankModel();
+      bank.deposit(10);
+      expect(bank.earned, (10));
+    });
+    test('Bank model available should turns into 10', () {
+      final bank = BankModel();
+      bank.deposit(10);
+      expect(bank.available, (10));
+    });
   });
   group('Bank model transfer tests', () {
     test('Bank model transfer should turns into 10', () {
       final bank = BankModel();
       bank.transfer(10);
       expect(bank.points, (10));
+    });
+    test('Bank model spent should turns into 10', () {
+      final bank = BankModel();
+      bank.transfer(10);
+      expect(bank.spent, (10));
+    });
+    test('Bank model available should turns into -10', () {
+      final bank = BankModel();
+      bank.transfer(10);
+      expect(bank.available, (-10));
     });
   });
 }

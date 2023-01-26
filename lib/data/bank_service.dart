@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:alubank_flutter/data/bank_model.dart';
-import 'package:dio/dio.dart';
+
 import 'package:mockito/annotations.dart';
 
 @GenerateMocks([BankService])
