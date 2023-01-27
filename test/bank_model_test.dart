@@ -1,3 +1,4 @@
+import 'package:alubank_flutter/components/view/recent_activity_widget.dart';
 import 'package:alubank_flutter/data/bank_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 

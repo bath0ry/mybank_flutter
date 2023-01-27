@@ -14,19 +14,19 @@ class RecentActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.all(16),
-      child: BoxHome(boxComponent: _RecentActivityContent()),
+      child: BoxHome(boxComponent: RecentActivityContent()),
     );
   }
 }
 
-class _RecentActivityContent extends StatefulWidget {
-  const _RecentActivityContent({super.key});
+class RecentActivityContent extends StatefulWidget {
+  const RecentActivityContent({super.key});
 
   @override
-  State<_RecentActivityContent> createState() => _RecentActivityContentState();
+  State<RecentActivityContent> createState() => RecentActivityContentState();
 }
 
-class _RecentActivityContentState extends State<_RecentActivityContent> {
+class RecentActivityContentState extends State<RecentActivityContent> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
