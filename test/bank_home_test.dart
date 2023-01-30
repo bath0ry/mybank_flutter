@@ -19,7 +19,7 @@ void main() {
 
     expect(find.byType(LinearProgressIndicator), findsOneWidget);
   });
-  testWidgets('My widget has ', (tester) async {
+  testWidgets('Finds 5 box card', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: BankInherited(child: HomePage()),
     ));
