@@ -40,7 +40,7 @@ class AccountActions extends StatelessWidget {
                 child: const BoxHome(
                     boxComponent: _AccountActionsContent(
                   icon: Icon(Icons.cached),
-                  text: 'Trasnferir',
+                  text: 'Transferir',
                 )),
               ),
               InkWell(

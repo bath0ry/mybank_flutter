@@ -54,6 +54,7 @@ void main() {
   //teste de ações
 
   group('Actions tests', () {
+    //deposit actions
     testWidgets('Earned value should turns into 10', (tester) async {
       await tester.pumpWidget(MaterialApp(
         home: BankInherited(child: HomePage()),
@@ -63,5 +64,45 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('\$10.0'), findsOneWidget);
     });
+    testWidgets('Spent value should turns into 10', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: BankInherited(child: HomePage()),
+      ));
+      await tester.tap(find.text('Transferir'));
+      await tester.tap(find.text('Saída'));
+      await tester.pumpAndSettle();
+      expect(find.text('\$10.0'), findsOneWidget);
+    });
+    testWidgets('Linear progress spent value should turns into 10',
+        (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: BankInherited(child: HomePage()),
+      ));
+      await tester.tap(find.text('Transferir'));
+      await tester.tap(find.text('Saída'));
+      await tester.pumpAndSettle();
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
+    });
+
+    group('Test actions widget balance value', (() {
+      testWidgets('Balance value should turns into 10', (tester) async {
+        await tester.pumpWidget(MaterialApp(
+          home: BankInherited(child: HomePage()),
+        ));
+        await tester.tap(find.text('Depositar'));
+        await tester.tap(find.text('Saldo Disponivel'));
+        await tester.pumpAndSettle();
+        expect(find.text('\$10.0'), findsOneWidget);
+      });
+      testWidgets('Balance value should turns into -10', (tester) async {
+        await tester.pumpWidget(MaterialApp(
+          home: BankInherited(child: HomePage()),
+        ));
+        await tester.tap(find.text('Transferir'));
+        await tester.tap(find.text('Saldo Disponivel'));
+        await tester.pumpAndSettle();
+        expect(find.text('\$-10.0'), findsOneWidget);
+      });
+    }));
   });
 }
