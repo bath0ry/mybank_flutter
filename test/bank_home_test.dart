@@ -1,4 +1,5 @@
 import 'package:alubank_flutter/components/view/box_home_widget.dart';
+import 'package:alubank_flutter/components/view/division_widget.dart';
 import 'package:alubank_flutter/data/bank_inherited.dart';
 import 'package:alubank_flutter/home/home_page.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,20 @@ void main() {
       ));
       final spentFinder = find.text('Saída');
       expect(spentFinder, findsOneWidget);
+    });
+    testWidgets('My home has Diga-me como text button', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: BankInherited(child: HomePage()),
+      ));
+      final textButtonFinder = find.text('Diga-me como!');
+      expect(textButtonFinder, findsOneWidget);
+    });
+    testWidgets('My home has division widget', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: BankInherited(child: HomePage()),
+      ));
+      final divisionFinder = find.byType(DivisionWidget);
+      expect(divisionFinder, findsNWidgets(2));
     });
     testWidgets('My widget has LinearProgressIndicator', (tester) async {
       await tester.pumpWidget(MaterialApp(

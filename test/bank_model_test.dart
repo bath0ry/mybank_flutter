@@ -3,6 +3,7 @@ import 'package:alubank_flutter/data/bank_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  //teste de unidade (teste do bank model)
   group("Bank model deposit tests ", () {
     test('Bank model deposit should turns into 10', () {
       final bank = BankModel();

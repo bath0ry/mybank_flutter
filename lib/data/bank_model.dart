@@ -1,3 +1,5 @@
+import 'package:alubank_flutter/data/bank_inherited.dart';
+
 class BankModel {
   double available = 0;
   double spent = 0;
