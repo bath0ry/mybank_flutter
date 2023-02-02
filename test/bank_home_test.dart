@@ -18,14 +18,14 @@ void main() {
     });
     testWidgets('My home has Diga-me como text button', (tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: BankInherited(child: HomePage()),
+        home: BankInherited(child: const HomePage()),
       ));
       final textButtonFinder = find.text('Diga-me como!');
       expect(textButtonFinder, findsOneWidget);
     });
     testWidgets('My home has division widget', (tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: BankInherited(child: HomePage()),
+        home: BankInherited(child: const HomePage()),
       ));
       final divisionFinder = find.byType(DivisionWidget);
       expect(divisionFinder, findsNWidgets(2));
@@ -57,7 +57,7 @@ void main() {
     //deposit actions
     testWidgets('Earned value should turns into 10', (tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: BankInherited(child: HomePage()),
+        home: BankInherited(child: const HomePage()),
       ));
       await tester.tap(find.text('Depositar'));
       await tester.tap(find.text('Entrada'));
@@ -66,7 +66,7 @@ void main() {
     });
     testWidgets('Spent value should turns into 10', (tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: BankInherited(child: HomePage()),
+        home: BankInherited(child: const HomePage()),
       ));
       await tester.tap(find.text('Transferir'));
       await tester.tap(find.text('Saída'));
@@ -76,18 +76,27 @@ void main() {
     testWidgets('Linear progress spent value should turns into 10',
         (tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: BankInherited(child: HomePage()),
+        home: BankInherited(child: const HomePage()),
       ));
       await tester.tap(find.text('Transferir'));
       await tester.tap(find.text('Saída'));
       await tester.pumpAndSettle();
       expect(find.byType(LinearProgressIndicator), findsOneWidget);
     });
+    testWidgets('Total points value should turns into 10', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: BankInherited(child: const HomePage()),
+      ));
+      await tester.tap(find.text('Depositar'));
+      await tester.tap(find.text('Pontos totais:'));
+      await tester.pumpAndSettle();
+      expect(find.text('0.0'), findsOneWidget);
+    });
 
     group('Test actions widget balance value', (() {
       testWidgets('Balance value should turns into 10', (tester) async {
         await tester.pumpWidget(MaterialApp(
-          home: BankInherited(child: HomePage()),
+          home: BankInherited(child: const HomePage()),
         ));
         await tester.tap(find.text('Depositar'));
         await tester.tap(find.text('Saldo Disponivel'));
@@ -96,7 +105,7 @@ void main() {
       });
       testWidgets('Balance value should turns into -10', (tester) async {
         await tester.pumpWidget(MaterialApp(
-          home: BankInherited(child: HomePage()),
+          home: BankInherited(child: const HomePage()),
         ));
         await tester.tap(find.text('Transferir'));
         await tester.tap(find.text('Saldo Disponivel'));
