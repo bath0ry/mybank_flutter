@@ -1,4 +1,5 @@
 import 'package:alubank_flutter/data/bank_inherited.dart';
+import 'package:alubank_flutter/data/bank_service.dart';
 import 'package:alubank_flutter/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme,
-      home: BankInherited(child: HomePage()),
+      home: BankInherited(
+          child: HomePage(
+        api: BankService().getDolarToReal(),
+      )),
     );
   }
 }
