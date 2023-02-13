@@ -8,15 +8,16 @@ import 'package:flutter/material.dart';
 import '../components/view/recent_activity_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.api});
+  final Future<String> api;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
         Column(
-          children: const [
-            Header(),
+          children: [
+            Header(api: api),
             RecentActivity(),
             AccountActions(),
             AccountPoints()
