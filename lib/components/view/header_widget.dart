@@ -8,7 +8,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatefulWidget {
-  const Header({super.key});
+  const Header({super.key, required this.api});
+  final Future<String> api;
 
   @override
   State<Header> createState() => _HeaderState();
@@ -84,7 +85,7 @@ class _HeaderState extends State<Header> {
                   }
                   return Text('Erro na API');
                 },
-                future: BankService().getDolarToReal(),
+                future: widget.api,
               ),
               IconButton(
                   onPressed: () {},

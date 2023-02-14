@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       body: ListView(children: [
         Column(
           children: [
-            Header(api: api),
+            Header(api: this.api),
             RecentActivity(),
             AccountActions(),
             AccountPoints()
